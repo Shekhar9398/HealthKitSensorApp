@@ -24,23 +24,7 @@ struct ElevationView: View {
                     .font(.title2)
                     .padding()
             }
-            
-            if !isAuthorized {
-                Button("Request Authorization and Fetch Data") {
-                    elevationDataFetcher.requestAuthorizationAndFetch { success in
-                        if success {
-                            isAuthorized = true
-                        } else {
-                            errorMessage = "Authorization failed. Please check your permissions."
-                        }
-                    }
-                }
-                .padding()
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(10)
-            }
-            
+
             if let errorMessage = errorMessage {
                 Text(errorMessage)
                     .foregroundColor(.red)
